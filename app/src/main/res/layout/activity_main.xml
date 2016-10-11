@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.itheima.fragmentevent.MainActivity">
+
+
+    <!--TitleFragment-->
+
+    <fragment
+        android:id="@+id/fragment_title"
+        android:name="com.itheima.fragmentevent.xml_fragment.TitleFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/xml_title"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </fragment>
+
+
+    <RelativeLayout
+        android:layout_below="@id/fragment_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--ContentFragment-->
+
+        <fragment
+            android:layout_centerInParent="true"
+            android:id="@+id/fragment_content"
+            android:name="com.itheima.fragmentevent.xml_fragment.ContentFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/xml_content">
+        </fragment>
+
+        <!--将动态添加的Fragment覆盖ContentFragment-->
+
+        <FrameLayout
+            android:id="@+id/fl_blank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+        <!--测试Activity和Fragment之间的信息传递-->
+
+        <Button
+            android:id="@+id/but_send"
+            android:onClick="sendMassage"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="发送消息"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
